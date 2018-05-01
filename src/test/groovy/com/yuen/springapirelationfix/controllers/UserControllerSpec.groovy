@@ -15,7 +15,7 @@ class UserControllerSpec extends BaseSpec{
 
     }
 
-    def "should able to add user data"() {
+    def "should able to add user data && should be able to fetch user data by id"() {
 
         given: 'we create user post request'
             def postRequest = userUtils.createUser()
