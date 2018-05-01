@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @Embedded
-//    @Valid
+    @Valid
     private Name name;
 
     @Enumerated(EnumType.STRING)
@@ -33,12 +33,11 @@ public class User {
 
     @Embedded
     @JsonProperty("contact_info")
-//    @Valid
+    @Valid
     private ContactInfo contactInfo;
 
     @Embedded
-//    @Valid
+    @Valid
     private  Address address;
-
 
 }

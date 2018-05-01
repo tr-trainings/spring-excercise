@@ -1,12 +1,10 @@
 package com.yuen.springapirelationfix.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 
 @Embeddable

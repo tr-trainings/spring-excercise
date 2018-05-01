@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "Exercise for backend",
                 "v1.0",
                 "Terms of service",
-                new Contact("Yuen Yalung", "www.example.com", "myeaddress@company.com"),
+                new Contact("Yuen Y. Yalung", "https://github.com/tryuenyalung/spring-excercise/tree/dev", "secret@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 }

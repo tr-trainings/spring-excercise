@@ -39,9 +39,8 @@ public class UserController {
     @ApiOperation( "add users" )
     @PostMapping
     public ResponseEntity addUser(@RequestBody @Valid  User user, Errors errors){
-        if (errors.hasErrors()) {
+        if (errors.hasErrors())
             throw new InvalidRequestBodyException( getValidationErrors.apply(errors) );
-        }
         return ResponseEntity.status(201).contentType(MediaType.APPLICATION_JSON_UTF8).body(userService.addUser(user));
     }
 
@@ -62,10 +61,10 @@ public class UserController {
     @ApiOperation( "delete user by id")
     @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable Long id){
-        if (userService.deleteUser(id)){
+        if (userService.deleteUser(id))
             return ResponseEntity.status(200).body(ApiResponse.builder().code(200)
                     .status("OK").message("data at id "+id+" successfully deleted").build());
-        }
+
         return ResponseEntity.status(400).body(ApiResponse.builder().code(400).
                 status("BAD REQUEST").message("something went wrong").build());
     }
