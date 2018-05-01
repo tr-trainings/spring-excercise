@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 
 @Embeddable
 @Data
-class Name {
+public class Name {
 
     @NotBlank(message = "first name is required")
     @JsonProperty(value = "first_name")

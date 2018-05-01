@@ -4,12 +4,16 @@ package com.yuen.springapirelationfix.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.yuen.springapirelationfix.enums.Gender;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @JsonPropertyOrder(value = {"id", "name", "gender", "address", "contact_info"})
 public class User {
@@ -19,7 +23,7 @@ public class User {
     private Long id;
 
     @Embedded
-    @Valid
+//    @Valid
     private Name name;
 
     @Enumerated(EnumType.STRING)
@@ -29,11 +33,12 @@ public class User {
 
     @Embedded
     @JsonProperty("contact_info")
-    @Valid
+//    @Valid
     private ContactInfo contactInfo;
 
     @Embedded
-    @Valid
+//    @Valid
     private  Address address;
+
 
 }

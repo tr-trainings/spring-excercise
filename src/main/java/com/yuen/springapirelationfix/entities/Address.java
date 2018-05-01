@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Embeddable
 @Data
-class Address {
+public class Address {
 
     @NotBlank(message = "street is required")
     private String street;
