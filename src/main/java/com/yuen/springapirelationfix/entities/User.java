@@ -1,6 +1,7 @@
 package com.yuen.springapirelationfix.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.yuen.springapirelationfix.enums.Gender;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 @NoArgsConstructor
 @Entity
 @JsonPropertyOrder(value = {"id", "name", "gender", "address", "contact_info"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
     @Id
