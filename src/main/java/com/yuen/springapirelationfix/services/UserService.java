@@ -3,8 +3,13 @@ package com.yuen.springapirelationfix.services;
 import com.yuen.springapirelationfix.entities.User;
 import com.yuen.springapirelationfix.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -54,6 +59,10 @@ public class UserService {
 
     public List<User> findAddressByQuery(String street, String city, String state, Integer zipCode){
         return userRepository.findAllByAddressStreetIgnoreCaseOrAddressCityIgnoreCaseOrAddressStateIgnoreCaseOrAddressZipCode(street, city, state, zipCode);
+    }
+
+    public Page<User> findAllPageable(Pageable pageable){
+        return userRepository.findAll(pageable);
     }
 
 }

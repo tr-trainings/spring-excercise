@@ -8,6 +8,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -33,6 +35,14 @@ public class UserController {
     @GetMapping
     public ResponseEntity findAllUsers(){
         return ResponseEntity.status(200).body(userService.findAllUsers());
+    }
+
+    @ApiOperation( "find all users pageable" )
+    @GetMapping("/page")
+    public ResponseEntity findAllUsersPageable(@RequestParam(value = "page", defaultValue = "0") String page,
+                                               @RequestParam(value = "size", defaultValue = "10") String size){
+        Pageable pageable = PageRequest.of(Integer.valueOf(page), Integer.valueOf(size));
+        return ResponseEntity.status(200).body(userService.findAllPageable(pageable));
     }
 
     @ApiOperation( "add users" )
