@@ -67,6 +67,7 @@ public class UserController {
                 status("BAD REQUEST").message("something went wrong").build());
     }
 
+    @ApiOperation( "search users by name query string")
     @GetMapping(value = "/name")
     public ResponseEntity findUserByFirstName(@RequestParam(value = "firstName", required = false) String firstName,
                                               @RequestParam(value = "lastName", required = false) String lastName,
