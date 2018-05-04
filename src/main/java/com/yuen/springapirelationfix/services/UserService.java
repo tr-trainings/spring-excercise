@@ -51,4 +51,9 @@ public class UserService {
     public List<User> findContactInfoByQuery(String email, String mobile, String telephone){
         return userRepository.findAllByContactInfoEmailIgnoreCaseOrContactInfoMobileOrContactInfoTelephone(email, mobile, telephone);
     }
+
+    public List<User> findAddressByQuery(String street, String city, String state, Integer zipCode){
+        return userRepository.findAllByAddressStreetIgnoreCaseOrAddressCityIgnoreCaseOrAddressStateIgnoreCaseOrAddressZipCode(street, city, state, zipCode);
+    }
+
 }
