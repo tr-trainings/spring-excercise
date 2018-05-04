@@ -48,4 +48,7 @@ public class UserService {
         return userRepository.findAllByNameFirstNameIgnoreCaseOrNameMiddleNameIgnoreCaseOrNameLastNameIgnoreCaseOrNameSuffixIgnoreCase(firstName, middleName, lastName, suffix);
     }
 
+    public List<User> findContactInfoByQuery(String email, String mobile, String telephone){
+        return userRepository.findAllByContactInfoEmailIgnoreCaseOrContactInfoMobileOrContactInfoTelephone(email, mobile, telephone);
+    }
 }

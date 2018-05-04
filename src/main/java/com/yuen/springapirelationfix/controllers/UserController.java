@@ -69,11 +69,19 @@ public class UserController {
 
     @ApiOperation( "search users by name query string")
     @GetMapping(value = "/name")
-    public ResponseEntity findUserByFirstName(@RequestParam(value = "firstName", required = false) String firstName,
+    public ResponseEntity findUserByName(@RequestParam(value = "firstName", required = false) String firstName,
                                               @RequestParam(value = "lastName", required = false) String lastName,
                                               @RequestParam(value = "middleName", required = false) String middleName,
                                               @RequestParam(value = "suffix", required = false) String suffix){
         return ResponseEntity.status(200).body(userService.findNameByQuery(firstName, middleName, lastName, suffix));
+    }
+
+    @ApiOperation( "search users by contact info query string")
+    @GetMapping(value = "/contact")
+    public ResponseEntity findUserByContactInfo(@RequestParam(value = "email", required = false) String email,
+                                              @RequestParam(value = "mobile", required = false) String mobile,
+                                              @RequestParam(value = "telephone", required = false) String telephone){
+        return ResponseEntity.status(200).body(userService.findContactInfoByQuery(email, mobile, telephone));
     }
 
     private Function<Errors,String> getValidationErrors = err ->
