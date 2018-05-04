@@ -13,8 +13,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-
-
     public List<User> findAllUsers(){
         return userRepository.findAll();
     }
@@ -46,5 +44,8 @@ public class UserService {
         throw new NullPointerException("trying to delete a non-existing data at id " + id);
     }
 
+    public List<User> findNameByQuery(String firstName, String middleName, String lastName, String suffix ){
+        return userRepository.findAllByNameFirstNameIgnoreCaseOrNameMiddleNameIgnoreCaseOrNameLastNameIgnoreCaseOrNameSuffixIgnoreCase(firstName, middleName, lastName, suffix);
+    }
 
 }

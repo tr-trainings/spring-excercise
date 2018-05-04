@@ -11,6 +11,5 @@ public class ContactInfo {
 
     @Email(message = "email must be a in valid form")
     private String email;
-
     private String mobile, telephone;
 }

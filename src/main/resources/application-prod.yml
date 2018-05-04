@@ -1,10 +1,10 @@
 ##############################Spring
 spring:
 
-  h2:
-    console:
-      enabled: true
-      path: /javamyadmin
+#  h2:
+#    console:
+#      enabled: true
+#      path: /javamyadmin
 
   jpa:
     database: POSTGRESQL

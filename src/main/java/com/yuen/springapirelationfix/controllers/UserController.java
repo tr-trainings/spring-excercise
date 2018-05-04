@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -64,11 +63,17 @@ public class UserController {
         if (userService.deleteUser(id))
             return ResponseEntity.status(200).body(ApiResponse.builder().code(200)
                     .status("OK").message("data at id "+id+" successfully deleted").build());
-
         return ResponseEntity.status(400).body(ApiResponse.builder().code(400).
                 status("BAD REQUEST").message("something went wrong").build());
     }
 
+    @GetMapping(value = "/name")
+    public ResponseEntity findUserByFirstName(@RequestParam(value = "firstName", required = false) String firstName,
+                                              @RequestParam(value = "lastName", required = false) String lastName,
+                                              @RequestParam(value = "middleName", required = false) String middleName,
+                                              @RequestParam(value = "suffix", required = false) String suffix){
+        return ResponseEntity.status(200).body(userService.findNameByQuery(firstName, middleName, lastName, suffix));
+    }
 
     private Function<Errors,String> getValidationErrors = err ->
             err.getAllErrors().stream()
